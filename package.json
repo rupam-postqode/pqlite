@@ -54,7 +54,7 @@
     "build": "vsce package --out pqlite.vsix",
     "install": "code --install-extension pqlite.vsix",
     "webview": "cd webview-ui && npm install && npm run build",
-    "dev": "npm run build && npm run install"
+    "dev": "npm run webview && run build && npm run install"
   },
   "devDependencies": {
     "@types/vscode": "^1.102.0",
