@@ -20,7 +20,7 @@
       "activitybar": [
         {
           "id": "pqlite-bar",
-          "title": "PQ Lite Bar",
+          "title": "PQ Lite",
           "icon": "icon.png"
         }
       ]
@@ -29,7 +29,7 @@
       "pqlite-bar": [
         {
           "id": "pqliteView",
-          "name": "PQ Lite View",
+          "name": "pqlite sidebar view",
           "icon": "icon.png"
         }
       ]
