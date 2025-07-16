@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import { FruitItem, FruitProvider } from "./FruitProvider";
 
 export function activate(context: vscode.ExtensionContext) {
+  // fruit provider in primary side bar
   const fruitProvider = new FruitProvider();
 
   vscode.window.registerTreeDataProvider("pqlite-fruit-view", fruitProvider);
