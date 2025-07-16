@@ -1,6 +1,24 @@
 import * as vscode from "vscode";
+import { FruitItem, FruitProvider } from "./FruitProvider";
 
 export function activate(context: vscode.ExtensionContext) {
+  const fruitProvider = new FruitProvider();
+
+  vscode.window.registerTreeDataProvider("pqlite-fruit-view", fruitProvider);
+
+  const fruitCommand = "pqlite.fruitClick";
+
+  const fruitCommandHandler = (fruit: FruitItem) => {
+    vscode.window.showInformationMessage(`You clicked on: ${fruit}`);
+  };
+
+  const fruitCommandDisposable = vscode.commands.registerCommand(
+    fruitCommand,
+    fruitCommandHandler
+  );
+
+  context.subscriptions.push(fruitCommandDisposable);
+
   // hello world command
   const helloCommand = "pqlite.sayHello";
 
@@ -72,7 +90,6 @@ export function activate(context: vscode.ExtensionContext) {
     helloCssCommand,
     helloCssCommandHandler
   );
-
 
   context.subscriptions.push(
     helloCommandDisposable,

@@ -29,8 +29,13 @@
       "pqlite-sidebar": [
         {
           "id": "pqliteView",
-          "name": "pqlite sidebar view",
+          "name": "pqlite sidebar",
           "icon": "icon.png"
+        },
+        {
+          "id": "pqlite-fruit-view",
+          "name": "Fruits",
+          "icon": "fruit.png"
         }
       ]
     },
@@ -42,7 +47,8 @@
       {
         "command": "pqlite.sayHello",
         "title": "Say Hello"
-      },{
+      },
+      {
         "command": "pqlite.helloPython",
         "title": "Hello Python"
       },
