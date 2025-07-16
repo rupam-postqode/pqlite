@@ -71,6 +71,10 @@
       {
         "command": "pqlite.showSimpleWebview",
         "title": "Show Simple Webview"
+      },
+      {
+        "command": "pqlite.refreshFruits",
+        "title": "Refresh Fruits"
       }
     ],
     "menus": {
