@@ -67,6 +67,10 @@
       {
         "command": "pqlite.helloMarkdown",
         "title": "Hello Markdown"
+      },
+      {
+        "command": "pqlite.showSimpleWebview",
+        "title": "Show Simple Webview"
       }
     ],
     "menus": {

@@ -1,11 +1,20 @@
 import * as vscode from "vscode";
 import { FruitItem, FruitProvider } from "./FruitProvider";
+import { showSimpleWebview } from "./SimpleWebview";
+import { showFruitWebview } from "./FruitWebview";
 
 export function activate(context: vscode.ExtensionContext) {
   // fruit provider in primary side bar
   const fruitProvider = new FruitProvider();
 
   vscode.window.registerTreeDataProvider("pqlite-fruit-view", fruitProvider);
+
+  const refreshCommand = vscode.commands.registerCommand(
+    "pqlite.refreshFruits",
+    () => {
+      fruitProvider.refresh();
+    }
+  );
 
   const fruitCommand = "pqlite.fruitClick";
 
@@ -18,7 +27,35 @@ export function activate(context: vscode.ExtensionContext) {
     fruitCommandHandler
   );
 
-  context.subscriptions.push(fruitCommandDisposable);
+  context.subscriptions.push(fruitCommandDisposable, refreshCommand);
+
+  // simple webview
+  const webviewCommand = "pqlite.showSimpleWebview";
+
+  const webviewCommandHandler = () => {
+    showSimpleWebview(context);
+  };
+
+  const webviewCommandDisposable = vscode.commands.registerCommand(
+    webviewCommand,
+    webviewCommandHandler
+  );
+
+  context.subscriptions.push(webviewCommandDisposable);
+
+  // fruit webview
+  const showFruitWebviewCommand = "pqlite.showFruitWebview";
+
+  const showFruitWebviewCommandHandler = (fruitName: string) => {
+    showFruitWebview(context, fruitName);
+  };
+
+  const showFruitWebviewCommandDisposable = vscode.commands.registerCommand(
+    showFruitWebviewCommand,
+    showFruitWebviewCommandHandler
+  );
+
+  context.subscriptions.push(showFruitWebviewCommandDisposable);
 
   // hello world command
   const helloCommand = "pqlite.sayHello";
