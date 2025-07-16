@@ -19,14 +19,14 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "pqlite-bar",
+          "id": "pqlite-sidebar",
           "title": "PQ Lite",
           "icon": "icon.png"
         }
       ]
     },
     "views": {
-      "pqlite-bar": [
+      "pqlite-sidebar": [
         {
           "id": "pqliteView",
           "name": "pqlite sidebar view",
@@ -38,8 +38,55 @@
       {
         "command": "pqlite.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "pqlite.sayHello",
+        "title": "Say Hello"
+      },{
+        "command": "pqlite.helloPython",
+        "title": "Hello Python"
+      },
+      {
+        "command": "pqlite.helloJavaScript",
+        "title": "Hello JavaScript"
+      },
+      {
+        "command": "pqlite.helloCss",
+        "title": "Hello CSS"
+      },
+      {
+        "command": "pqlite.helloHtml",
+        "title": "Hello HTML"
+      },
+      {
+        "command": "pqlite.helloMarkdown",
+        "title": "Hello Markdown"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "pqlite.helloMarkdown",
+          "when": "editorLangId == 'markdown'"
+        },
+        {
+          "command": "pqlite.helloHtml",
+          "when": "editorLangId == 'html'"
+        },
+        {
+          "command": "pqlite.helloCss",
+          "when": "editorLangId == 'css'"
+        },
+        {
+          "command": "pqlite.helloJavaScript",
+          "when": "editorLangId == 'javascript'"
+        },
+        {
+          "command": "pqlite.helloPython",
+          "when": "editorLangId == 'python'"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

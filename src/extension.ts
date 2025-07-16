@@ -1,26 +1,87 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  // hello world command
+  const helloCommand = "pqlite.sayHello";
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "pqlite" is now active!');
+  const helloCommandHandler = (name: string = "world") => {
+    console.log(`Hello ${name}!!!`);
+  };
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('pqlite.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from pqlite!');
-	});
+  const helloCommandDisposable = vscode.commands.registerCommand(
+    helloCommand,
+    helloCommandHandler
+  );
 
-	context.subscriptions.push(disposable);
+  // hello markdown command
+  const helloMarkdownCommand = "pqlite.helloMarkdown";
+
+  const helloMarkdownCommandHandler = () => {
+    vscode.window.showInformationMessage("Hello from the Markdown command!");
+  };
+
+  const helloMarkdownCommandDisposable = vscode.commands.registerCommand(
+    helloMarkdownCommand,
+    helloMarkdownCommandHandler
+  );
+
+  // hello python command
+  const helloPythonCommand = "pqlite.helloPython";
+
+  const helloPythonCommandHandler = () => {
+    vscode.window.showInformationMessage("Hello from the Python command!");
+  };
+
+  const helloPythonCommandDisposable = vscode.commands.registerCommand(
+    helloPythonCommand,
+    helloPythonCommandHandler
+  );
+
+  // hello javascript command
+  const helloJavaScriptCommand = "pqlite.helloJavaScript";
+
+  const helloJavaScriptCommandHandler = () => {
+    vscode.window.showInformationMessage("Hello from the JavaScript command!");
+  };
+
+  const helloJavaScriptCommandDisposable = vscode.commands.registerCommand(
+    helloJavaScriptCommand,
+    helloJavaScriptCommandHandler
+  );
+
+  // hello html command
+  const helloHtmlCommand = "pqlite.helloHtml";
+
+  const helloHtmlCommandHandler = () => {
+    vscode.window.showInformationMessage("Hello from the HTML command!");
+  };
+
+  const helloHtmlCommandDisposable = vscode.commands.registerCommand(
+    helloHtmlCommand,
+    helloHtmlCommandHandler
+  );
+
+  // hello css command
+  const helloCssCommand = "pqlite.helloCss";
+
+  const helloCssCommandHandler = () => {
+    vscode.window.showInformationMessage("Hello from the CSS command!");
+  };
+
+  const helloCssCommandDisposable = vscode.commands.registerCommand(
+    helloCssCommand,
+    helloCssCommandHandler
+  );
+
+
+  context.subscriptions.push(
+    helloCommandDisposable,
+    helloMarkdownCommandDisposable,
+    helloPythonCommandDisposable,
+    helloJavaScriptCommandDisposable,
+    helloHtmlCommandDisposable,
+    helloCssCommandDisposable
+  );
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}
